@@ -29,4 +29,4 @@ general bugs when possible.
 The policy may be revisited if the project stabilizes and maintainer bandwidth changes—but you should assume it stays
 closed.
 
-Thanks for respecting the boundaries and for your interest in `typecheck`.
+Thanks for respecting the boundaries and for your interest in this project.

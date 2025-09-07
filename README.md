@@ -308,10 +308,6 @@ Partially handled (best-effort) constructs: `LiteralString` (treated as `str`), 
 
 AGPL-3.0-or-later. See `LICENSE`.
 
-Rationale: AGPL ensures improvements to the runtime validation mechanics remain available to the community even when
-used over a network (a common deployment style for frameworks and services). This license choice is intentional and
-will not be changed or re-licensed under a more permissive variant.
-
 ---
 ## Cheat Sheet
 
