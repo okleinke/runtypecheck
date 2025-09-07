@@ -1,4 +1,4 @@
-from typing import Any, Literal, Type, TypeVar, Union
+from typing import Any, ClassVar, Final, Literal, Type, TypeVar, Union
 
 import pytest
 
@@ -80,17 +80,13 @@ def test_typevar_binding_reuse_and_mismatch():
         pair(1, "x")  # type: ignore[arg-type]
 
 
-from typing import ClassVar as _ClassVar
-from typing import Final as _Final  # local aliases to avoid reordering top imports
-
-
 @typecheck()
-def use_final(x: _Final[int]):  # type: ignore[type-arg]
+def use_final(x: Final[int]):
     return x
 
 
 @typecheck()
-def use_classvar(x: _ClassVar[int]):  # type: ignore[type-arg]
+def use_classvar(x: ClassVar[int]):
     return x
 
 

@@ -1,6 +1,6 @@
 """Demonstrates collection element sampling vs deep vs default sampling behavior."""
 
-from typecheck import typecheck, TypeCheckError
+from typecheck import TypeCheckError, typecheck
 
 
 # Demonstrates sampling vs deep checking

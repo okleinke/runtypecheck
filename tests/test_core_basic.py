@@ -1,4 +1,3 @@
-import os
 from typing import Any, Callable, Optional, Type, Union
 
 import pytest

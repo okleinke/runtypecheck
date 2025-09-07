@@ -1,11 +1,12 @@
 """Demonstrates config forward_ref_policy and fallback_policy behaviors."""
+
 from __future__ import annotations
 
-from typecheck import typecheck, config, TypeCheckError
+from typecheck import TypeCheckError, config, typecheck
 
 
 @typecheck()
-def permissive(x: "UnknownType") -> int:  # forward ref unresolved but permissive
+def permissive(x: "UnknownType") -> int:  # noqa
     return 1
 
 
@@ -16,9 +17,11 @@ def demo_permissive():
 def demo_strict():
     config.set_forward_ref_policy("strict")
     try:
+
         @typecheck()
-        def f(y: "NotDeclared") -> int:  # strict policy now active
+        def f(y: "NotDeclared") -> int:  # noqa
             return 2
+
         f(1)  # noqa
     except TypeCheckError as e:
         print("Strict forward ref error:", e)
@@ -32,9 +35,11 @@ def demo_fallback_error():
 
     config.set_fallback_policy("error")
     try:
+
         @typecheck()
         def g(z: FakeType) -> None:  # type: ignore[valid-type]
             return None
+
         g(5)  # should raise
     except TypeCheckError as e:
         print("Fallback policy error:", e)

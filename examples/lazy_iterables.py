@@ -1,7 +1,8 @@
 """Illustrates lazy iterable validation: generator elements checked on demand."""
 
-from typecheck import typecheck, config, TypeCheckError
 from collections.abc import Iterable
+
+from typecheck import TypeCheckError, config, typecheck
 
 
 def make_numbers():

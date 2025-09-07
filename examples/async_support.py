@@ -1,7 +1,8 @@
 """Shows async function validation with awaited return type checking."""
 
 import asyncio
-from typecheck import typecheck, TypeCheckError
+
+from typecheck import TypeCheckError, typecheck
 
 
 @typecheck()

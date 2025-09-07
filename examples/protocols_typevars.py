@@ -1,7 +1,8 @@
 """Protocol structural typing and constrained TypeVar validation example."""
 
 from typing import Protocol, TypeVar
-from typecheck import typecheck, TypeCheckError
+
+from typecheck import TypeCheckError, typecheck
 
 
 class SupportsClose(Protocol):

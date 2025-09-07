@@ -1,6 +1,4 @@
-import asyncio
-import typing
-from typing import Generic, Iterable, Optional, Protocol, TypeVar
+from typing import Iterable, Protocol, TypeVar
 
 import pytest
 
@@ -41,7 +39,6 @@ def echo_bound(x: T_bound) -> int:  # type: ignore[type-arg]
 
 
 # Narrowing via simple TypeGuard-like pattern (simulated)
-from typing import TypeGuard
 
 
 @typecheck()

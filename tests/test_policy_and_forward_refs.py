@@ -5,7 +5,7 @@ from typecheck import TypeCheckError, config, typecheck
 
 def test_forward_ref_permissive_default():
     @typecheck()
-    def f(x: "UnknownType"):  # type: ignore[valid-type]
+    def f(x: "UnknownType"):  # noqa
         return x
 
     assert f(1) == 1  # accepted
@@ -15,7 +15,7 @@ def test_forward_ref_strict_error():
     config.set_forward_ref_policy("strict")
 
     @typecheck()
-    def g(x: "NotDeclared"):  # type: ignore[valid-type]
+    def g(x: "NotDeclared"):  # noqa
         return x
 
     with pytest.raises(TypeCheckError):
@@ -30,7 +30,7 @@ def test_fallback_policy_error():
     config.set_fallback_policy("error")
 
     @typecheck()
-    def h(x: "UnresolvedAlso"):  # type: ignore[valid-type]  # forward ref permissive path
+    def h(x: "UnresolvedAlso"):  # noqa
         return x
 
     # Fallback policy error triggers on unsupported construct path; simulate by passing a made-up typing-like object

@@ -4,6 +4,7 @@ Does repeated timed single-call comparisons after a warmup phase.
 """
 
 from time import perf_counter
+
 from typecheck import weak_lru
 
 
@@ -62,6 +63,4 @@ if __name__ == "__main__":
 
     avg_speed = sum(r[4] for r in results) / RUNS
     print("-" * 72)
-    print(
-        f"avg plain={avg(1):.2f} ms cached_hot={avg(3):.2f} ms speedup={avg_speed:.1f}x"
-    )
+    print(f"avg plain={avg(1):.2f} ms cached_hot={avg(3):.2f} ms speedup={avg_speed:.1f}x")

@@ -1,6 +1,6 @@
 """Adjusts global config (sample size, strict mode) and demonstrates effects."""
 
-from typecheck import typecheck, config, TypeCheckError
+from typecheck import TypeCheckError, config, typecheck
 
 # Adjust global defaults
 config.sample_size = 2

@@ -1,6 +1,6 @@
 """Enforces strict return annotation presence and return value type checking."""
 
-from typecheck import typecheck, TypeCheckError, config
+from typecheck import TypeCheckError, config, typecheck
 
 config.strict_return_mode = True
 config.strict_mode = True

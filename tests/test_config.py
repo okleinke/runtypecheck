@@ -115,9 +115,8 @@ def test_config_reset_and_sample_sync():
 
 def test_fallback_policy_error_for_unsupported():
     # Transition fallback policy to error and ensure unsupported annotation triggers TypeCheckError
-    from typecheck import TypeCheckError
+    from typecheck import TypeCheckError, typecheck
     from typecheck import config as _cfg  # type: ignore
-    from typecheck import typecheck
 
     _cfg.set_fallback_policy("error")
     unsupported = 123
@@ -152,14 +151,13 @@ def test_warn_fallback_policy(capsys):
 
 
 def test_forward_ref_strict_policy():
-    from typecheck import TypeCheckError
+    from typecheck import TypeCheckError, typecheck
     from typecheck import config as _cfg  # type: ignore
-    from typecheck import typecheck
 
     _cfg.set_forward_ref_policy("strict")
 
     @typecheck()
-    def h(x: "UnknownType"):  # type: ignore[name-defined]
+    def h(x: "UnknownType"):  # noqa
         return x
 
     with pytest.raises(TypeCheckError):  # type: ignore[name-defined]

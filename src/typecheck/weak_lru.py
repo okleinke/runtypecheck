@@ -15,9 +15,8 @@ import threading
 import warnings
 import weakref
 from collections import OrderedDict, namedtuple
-from typing import Any
+from typing import Any, Optional, Protocol, TypeVar
 from typing import Callable as TypingCallable
-from typing import Optional, Protocol, TypeVar
 
 CacheInfo = namedtuple("CacheInfo", ["hits", "misses", "maxsize", "currsize"])
 

@@ -211,9 +211,7 @@ def _validate_type_annotation(value, expected_type, param_name, func_name, recur
         if not (
             value is expected_cls
             or (
-                inspect.isclass(expected_cls)
-                and inspect.isclass(value)
-                and issubclass(value, expected_cls)  # type: ignore[arg-type]
+                inspect.isclass(expected_cls) and inspect.isclass(value) and issubclass(value, expected_cls)  # type: ignore[arg-type]
             )
         ):
             raise TypeCheckError(
@@ -407,8 +405,8 @@ def _validate_protocol(
             signature_mismatches.append(
                 (
                     f"{name}: param '{p_proto.name}' expected "
-                    f"{getattr(expected_ann,'__name__', expected_ann)}, got "
-                    f"{getattr(actual_ann,'__name__', actual_ann)}"
+                    f"{getattr(expected_ann, '__name__', expected_ann)}, got "
+                    f"{getattr(actual_ann, '__name__', actual_ann)}"
                 )
             )
         # Return type compatibility
@@ -419,8 +417,8 @@ def _validate_protocol(
                 if not (_inspect.isclass(impl_ret) and _inspect.isclass(proto_ret) and issubclass(impl_ret, proto_ret)):
                     signature_mismatches.append(
                         (
-                            f"{name}: return expected {getattr(proto_ret,'__name__', proto_ret)}, "
-                            f"got {getattr(impl_ret,'__name__', impl_ret)}"
+                            f"{name}: return expected {getattr(proto_ret, '__name__', proto_ret)}, "
+                            f"got {getattr(impl_ret, '__name__', impl_ret)}"
                         )
                     )
     if missing or signature_mismatches:

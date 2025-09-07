@@ -6,9 +6,10 @@ Demonstrates:
 - Opting a specific method out with @typecheck(ignore=True).
 - Handling staticmethod and classmethod.
 """
+
 from __future__ import annotations
 
-from typecheck import typecheck, TypeCheckError
+from typecheck import TypeCheckError, typecheck
 
 
 @typecheck(include=["area", "perimeter", "make_square"], exclude=["perimeter"])

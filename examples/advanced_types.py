@@ -2,11 +2,12 @@
 
 Combines several features into one concise demo.
 """
+
 from __future__ import annotations
 
-from typing import Annotated, NewType, Protocol, TypeVar, TypedDict
+from typing import Annotated, NewType, Protocol, TypedDict, TypeVar
 
-from typecheck import typecheck, TypeCheckError
+from typecheck import TypeCheckError, typecheck
 
 
 # TypedDict example

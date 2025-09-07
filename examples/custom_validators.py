@@ -1,6 +1,6 @@
 """Registers and uses a custom validator for a user-defined PositiveInt type."""
 
-from typecheck import typecheck, register_validator, TypeCheckError
+from typecheck import TypeCheckError, register_validator, typecheck
 
 
 class PositiveInt(int):

@@ -1,6 +1,5 @@
 import asyncio
-from collections import Counter
-from typing import Callable, ClassVar, Coroutine, Final, Generator, NewType, TypeGuard
+from typing import Callable, Coroutine, Generator, NewType, TypeGuard
 
 import pytest
 

@@ -39,7 +39,6 @@ def test_lazy_validation_generator_failure_on_iteration():
 
 
 def test_iterator_sampling_negative_case():
-
     @typecheck(sample=2)
     def takes_iter(it: Iterable[int]) -> int:
         return 1
