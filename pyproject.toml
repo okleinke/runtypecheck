@@ -7,7 +7,7 @@ name = "runtypecheck"
 version = "0.1.0"
 description = "Runtime type checking decorator for Python functions and classes"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 keywords = [
     "typecheck",
     "type-checking",
@@ -24,7 +24,6 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
     "Natural Language :: English",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
@@ -48,23 +47,13 @@ Source = "https://github.com/okleinke/runtypecheck/"
 
 [project.optional-dependencies]
 dev = [
-    "black",
     "build",
-    "isort",
     "mypy",
+    "pyproject-scripts",
     "pytest",
     "pytest-cov",
     "ruff",
-    "validate-pyproject[all]",
-    "vulture",
 ]
-
-
-[tool.isort]
-profile = "black"
-
-[tool.black]
-line-length = 120
 
 [tool.mypy]
 ignore_missing_imports = true
@@ -73,3 +62,15 @@ ignore_missing_imports = true
 line-length = 120
 lint.extend-select = ["E"]
 lint.ignore = []
+
+[tool.scripts.lint]
+cmd = "ruff check . && mypy src && ruff format --check ."
+description = "Run linter and type checker"
+
+[tool.scripts.format]
+cmd = "ruff format ."
+description = "Auto-format code"
+
+[tool.scripts.test]
+cmd = "pytest --cov=typecheck --cov-report=term-missing"
+description = "Run tests with coverage"
